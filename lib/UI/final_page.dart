@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sprint1/UI/carrito_total.dart';
 import 'package:sprint1/UI/resumen_productos.dart';
+import 'package:sprint1/services/firebase_services.dart';
+import 'package:uuid/uuid.dart';
+import '../controllers/producto_controller.dart';
+import '../controllers/cart_controller.dart';
 
 class FinalPage extends StatefulWidget {
   const FinalPage({super.key});
@@ -11,8 +15,11 @@ class FinalPage extends StatefulWidget {
 }
 
 class _FinalPageState extends State<FinalPage> {
+  final CartController cartController = Get.find();
+  final productoController = Get.put(ProductoControler());
   @override
   Widget build(BuildContext context) {
+    var uuid = const Uuid();
     double scWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
@@ -131,7 +138,15 @@ class _FinalPageState extends State<FinalPage> {
                     SizedBox(width: 10),
                     Expanded(
                       child: ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          var numPed = uuid.v4();
+                          var pedidoId = uuid.v4();
+                          addPedidoData(numPed, Get.arguments[4], pedidoId);
+                          for (var v in cartController.ids.keys) {
+                            addPedidoPlatoData(
+                                pedidoId, v, cartController.ids[v]);
+                          }
+                        },
                         icon: Image.asset(
                             '../../assets/images/whatsapp_logo.png',
                             width: 35,

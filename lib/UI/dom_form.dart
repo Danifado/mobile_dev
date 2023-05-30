@@ -5,6 +5,7 @@ import 'first_page.dart';
 import 'package:sprint1/services/firebase_services.dart';
 import 'resumen_productos.dart';
 import 'package:measured_size/measured_size.dart';
+import 'package:uuid/uuid.dart';
 
 class Domicilios extends StatefulWidget {
   const Domicilios({super.key});
@@ -14,6 +15,7 @@ class Domicilios extends StatefulWidget {
 }
 
 class _DomiciliosState extends State<Domicilios> {
+  var uuid = const Uuid();
   TextEditingController nameController = TextEditingController(text: "");
   TextEditingController phoneController = TextEditingController(text: "");
   TextEditingController addressController = TextEditingController(text: "");
@@ -281,17 +283,19 @@ class _DomiciliosState extends State<Domicilios> {
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Color.fromARGB(239, 58, 58, 150)),
                       onPressed: () {
+                        var id = uuid.v1();
                         addClientData(
                             nameController.text,
                             phoneController.text,
                             addressController.text,
                             observationsController.text,
-                            "1");
+                            id);
                         Get.to(FinalPage(), arguments: [
                           nameController.text,
                           phoneController.text,
                           addressController.text,
                           observationsController.text,
+                          id
                         ]);
                       },
                       child: Text(

@@ -23,6 +23,20 @@ class FirestoreDB {
   }
 }
 
+Future<void> addPedidoData(String numPed, String idClient, String id) async {
+  await _firebaseFirestore
+      .collection('pedido')
+      .doc(id)
+      .set({"numPed": numPed, "usuarioId": idClient});
+}
+
+Future<void> addPedidoPlatoData(
+    String pedidoId, String platoId, int cantidad) async {
+  await _firebaseFirestore
+      .collection('pedido-plato')
+      .add({"pedidoId": pedidoId, "platoId": platoId, "cantidad": cantidad});
+}
+
 Future<void> addClientData(
     String name, String phone, String address, String obs, String id) async {
   await _firebaseFirestore.collection('datos').doc(id).set({
