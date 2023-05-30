@@ -285,12 +285,13 @@ class _DomiciliosState extends State<Domicilios> {
                             nameController.text,
                             phoneController.text,
                             addressController.text,
-                            observationsController.text);
+                            observationsController.text,
+                            "1");
                         Get.to(FinalPage(), arguments: [
                           nameController.text,
                           phoneController.text,
                           addressController.text,
-                          observationsController.text
+                          observationsController.text,
                         ]);
                       },
                       child: Text(

@@ -24,8 +24,8 @@ class FirestoreDB {
 }
 
 Future<void> addClientData(
-    String name, String phone, String address, String obs) async {
-  await _firebaseFirestore.collection('datos').add({
+    String name, String phone, String address, String obs, String id) async {
+  await _firebaseFirestore.collection('datos').doc(id).set({
     "Direccion": address,
     "Nombre": name,
     "Observaciones": obs,

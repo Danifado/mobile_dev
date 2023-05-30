@@ -40,3 +40,45 @@ class Restaurante {
     return restaurante;
   }
 }
+
+class Pedido {
+  final String id;
+  final String numPed;
+  final String usuarioId;
+
+  const Pedido({
+    required this.id,
+    required this.numPed,
+    required this.usuarioId,
+  });
+
+  static Pedido fromSnapshot(DocumentSnapshot snap) {
+    Pedido pedido = Pedido(
+      id: snap.id,
+      numPed: snap['numPed'],
+      usuarioId: snap['usuarioId'],
+    );
+    return pedido;
+  }
+}
+
+class Pedido_plato {
+  final String id;
+  final String pedidoId;
+  final String platoId;
+
+  const Pedido_plato({
+    required this.id,
+    required this.pedidoId,
+    required this.platoId,
+  });
+
+  static Pedido_plato fromSnapshot(DocumentSnapshot snap) {
+    Pedido_plato pedido_plato = Pedido_plato(
+      id: snap.id,
+      pedidoId: snap['pedidoId'],
+      platoId: snap['platoId'],
+    );
+    return pedido_plato;
+  }
+}
