@@ -126,9 +126,7 @@ class _FisrtPageState extends State<FistPage> {
                             ),
                           );
                         }
-                        print(menuItems);
                       }
-                      print(menuItems);
                       return DropdownButton(
                         value: dropdownvalue,
                         underline: SizedBox(),
@@ -138,7 +136,6 @@ class _FisrtPageState extends State<FistPage> {
                           setState(() {
                             dropdownvalue = menuValue;
                           });
-                          print(menuValue);
                         },
                       );
                     }),
@@ -153,8 +150,8 @@ class _FisrtPageState extends State<FistPage> {
                   },
                   itemCount: productoControler.productos.length,
                   itemBuilder: (context, index) {
-                    if (dropdownvalue == "menu 1" &&
-                        productoControler.productos[index].menu == "Menu 1") {
+                    if (dropdownvalue ==
+                        productoControler.productos[index].menu) {
                       return Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -184,69 +181,71 @@ class _FisrtPageState extends State<FistPage> {
                           ),
                         ],
                       );
-                    } else if (dropdownvalue == "menu 2" &&
-                        productoControler.productos[index].menu == "Menu 2") {
-                      return Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          ClipRRect(
-                            child: GestureDetector(
-                              onTap: () {
-                                cartController.addProductos(
-                                    productoControlerf.productos[index]);
-                                setState(() {});
-                              },
-                              child: Image.network(
-                                productoControler.productos[index].imagenUrl,
-                                height: 250,
-                                width: 250,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Row(
-                            children: [
-                              Text(productoControler.productos[index].nombre +
-                                  " \$" +
-                                  productoControler.productos[index].precio
-                                      .toString())
-                            ],
-                          ),
-                        ],
-                      );
-                    } else if (dropdownvalue == "menu 3" &&
-                        productoControler.productos[index].menu == "Menu 3") {
-                      return Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          ClipRRect(
-                            child: GestureDetector(
-                              onTap: () {
-                                cartController.addProductos(
-                                    productoControlerf.productos[index]);
-                                setState(() {});
-                              },
-                              child: Image.network(
-                                productoControler.productos[index].imagenUrl,
-                                height: 250,
-                                width: 250,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Row(
-                            children: [
-                              Text(productoControler.productos[index].nombre +
-                                  " \$" +
-                                  productoControler.productos[index].precio
-                                      .toString())
-                            ],
-                          ),
-                        ],
-                      );
-                    } else {
+                    }
+                    //else if (dropdownvalue == "menu 2" &&
+                    //     productoControler.productos[index].menu == "Menu 2") {
+                    //   return Column(
+                    //     mainAxisSize: MainAxisSize.min,
+                    //     children: [
+                    //       ClipRRect(
+                    //         child: GestureDetector(
+                    //           onTap: () {
+                    //             cartController.addProductos(
+                    //                 productoControlerf.productos[index]);
+                    //             setState(() {});
+                    //           },
+                    //           child: Image.network(
+                    //             productoControler.productos[index].imagenUrl,
+                    //             height: 250,
+                    //             width: 250,
+                    //             fit: BoxFit.cover,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //       const SizedBox(height: 8),
+                    //       Row(
+                    //         children: [
+                    //           Text(productoControler.productos[index].nombre +
+                    //               " \$" +
+                    //               productoControler.productos[index].precio
+                    //                   .toString())
+                    //         ],
+                    //       ),
+                    //     ],
+                    //   );
+                    // } else if (dropdownvalue == "menu 3" &&
+                    //     productoControler.productos[index].menu == "Menu 3") {
+                    //   return Column(
+                    //     mainAxisSize: MainAxisSize.min,
+                    //     children: [
+                    //       ClipRRect(
+                    //         child: GestureDetector(
+                    //           onTap: () {
+                    //             cartController.addProductos(
+                    //                 productoControlerf.productos[index]);
+                    //             setState(() {});
+                    //           },
+                    //           child: Image.network(
+                    //             productoControler.productos[index].imagenUrl,
+                    //             height: 250,
+                    //             width: 250,
+                    //             fit: BoxFit.cover,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //       const SizedBox(height: 8),
+                    //       Row(
+                    //         children: [
+                    //           Text(productoControler.productos[index].nombre +
+                    //               " \$" +
+                    //               productoControler.productos[index].precio
+                    //                   .toString())
+                    //         ],
+                    //       ),
+                    //     ],
+                    //   );
+                    // }
+                    else {
                       return Center(
                         child: Text(""),
                       );

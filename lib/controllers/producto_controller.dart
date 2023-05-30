@@ -5,13 +5,11 @@ import 'package:sprint1/services/firebase_services.dart';
 class ProductoControler extends GetxController {
   final productos = <Producto>[].obs;
   final restaurante = <Restaurante>[].obs;
-  final menu = <Menu>[].obs;
 
   @override
   void onInit() {
     productos.bindStream(FirestoreDB().getAllProductos());
     restaurante.bindStream(FirestoreDB().getRestName());
-    menu.bindStream(FirestoreDB().getMenus());
     super.onInit();
   }
 }

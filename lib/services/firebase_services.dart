@@ -21,14 +21,6 @@ class FirestoreDB {
       },
     );
   }
-
-  Stream<List<Menu>> getMenus() {
-    return _firebaseFirestore.collection('menu').snapshots().map(
-      (Snapshot) {
-        return Snapshot.docs.map((doc) => Menu.fromSnapshot(doc)).toList();
-      },
-    );
-  }
 }
 
 Future<void> addClientData(
