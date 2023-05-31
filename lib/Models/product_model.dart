@@ -7,13 +7,15 @@ class Producto {
   final String imagenUrl;
   final String menu;
 
-  const Producto(
-      {required this.id,
-      required this.nombre,
-      required this.precio,
-      required this.imagenUrl,
-      required this.menu});
+  const Producto({
+    required this.id,
+    required this.nombre,
+    required this.precio,
+    required this.imagenUrl,
+    required this.menu,
+  });
 
+  /// Método estático para crear una instancia de Producto a partir de un DocumentSnapshot
   static Producto fromSnapshot(DocumentSnapshot snap) {
     Producto producto = Producto(
       id: snap.id,
@@ -33,6 +35,7 @@ class Restaurante {
     required this.nombre,
   });
 
+  /// Método estático para crear una instancia de Restaurante a partir de un DocumentSnapshot
   static Restaurante fromSnapshot(DocumentSnapshot snap) {
     Restaurante restaurante = Restaurante(
       nombre: snap['nombre'],
@@ -52,6 +55,7 @@ class Pedido {
     required this.usuarioId,
   });
 
+  /// Método estático para crear una instancia de Pedido a partir de un DocumentSnapshot
   static Pedido fromSnapshot(DocumentSnapshot snap) {
     Pedido pedido = Pedido(
       id: snap.id,
@@ -73,6 +77,7 @@ class Pedido_plato {
     required this.platoId,
   });
 
+  /// Método estático para crear una instancia de Pedido_plato a partir de un DocumentSnapshot
   static Pedido_plato fromSnapshot(DocumentSnapshot snap) {
     Pedido_plato pedido_plato = Pedido_plato(
       id: snap.id,

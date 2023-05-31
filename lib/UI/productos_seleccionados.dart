@@ -3,21 +3,26 @@ import 'package:get/get.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:sprint1/Models/product_model.dart';
 
-import '../controllers/cart_controller.dart';
+import '../controllers/cart_controller.dart'; // Importación del controlador cart_controller.dart
 
 class CartScreen extends StatelessWidget {
-  final CartController controller = Get.find();
-  final double scWidth;
+  // Clase CartScreen que representa la pantalla del carrito
+  final CartController controller =
+      Get.find(); // Búsqueda del controlador de carrito existente
+  final double scWidth; // Ancho de la pantalla
+
   CartScreen({Key? key, required this.scWidth}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // Construcción de la interfaz de usuario
     return Obx(
       () => Container(
         height: 200,
         width: scWidth,
         child: ListView.builder(
-          itemCount: controller.productos.length,
+          itemCount:
+              controller.productos.length, // Número de productos en el carrito
           itemBuilder: (BuildContext context, int index) {
             return CartScreenCard(
                 controller: controller,
@@ -32,12 +37,13 @@ class CartScreen extends StatelessWidget {
   }
 }
 
+/// Clase CartScreenCard que representa un elemento de producto en la pantalla del carrito
 class CartScreenCard extends StatelessWidget {
-  final CartController controller;
-  final Producto producto;
-  final int cantidad;
-  final int index;
-  final double scWidth;
+  final CartController controller; // Controlador del carrito
+  final Producto producto; // Producto
+  final int cantidad; // Cantidad del producto
+  final int index; // Índice del producto
+  final double scWidth; // Ancho de la pantalla
 
   CartScreenCard({
     Key? key,
@@ -87,7 +93,8 @@ class CartScreenCard extends StatelessWidget {
             padding: EdgeInsets.only(left: 0, right: 0),
             child: IconButton(
               onPressed: () {
-                controller.removeProductos(producto);
+                controller.removeProductos(
+                    producto); // Elimina el producto del carrito
               },
               icon: Icon(
                 Icons.remove_circle_rounded,
@@ -101,7 +108,7 @@ class CartScreenCard extends StatelessWidget {
           fit: FlexFit.tight,
           child: Padding(
             padding: EdgeInsets.only(left: 20, right: 0),
-            child: Text("${cantidad}"),
+            child: Text("${cantidad}"), // Muestra la cantidad del producto
           ),
         ),
         Flexible(
@@ -111,7 +118,8 @@ class CartScreenCard extends StatelessWidget {
             padding: EdgeInsets.only(left: 0, right: 0),
             child: IconButton(
               onPressed: () {
-                controller.addProductos(producto);
+                controller
+                    .addProductos(producto); // Agrega el producto al carrito
               },
               icon: Icon(
                 Icons.add_circle_rounded,
@@ -127,7 +135,8 @@ class CartScreenCard extends StatelessWidget {
             padding: EdgeInsets.only(left: 0, right: 0),
             child: IconButton(
               onPressed: () {
-                controller.deleteProductos(producto);
+                controller.deleteProductos(
+                    producto); // Elimina el producto del carrito
               },
               icon: Icon(
                 Icons.delete,

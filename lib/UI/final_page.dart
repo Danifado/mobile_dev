@@ -17,6 +17,7 @@ class FinalPage extends StatefulWidget {
 class _FinalPageState extends State<FinalPage> {
   final CartController cartController = Get.find();
   final productoController = Get.put(ProductoControler());
+
   @override
   Widget build(BuildContext context) {
     var uuid = const Uuid();
@@ -60,6 +61,8 @@ class _FinalPageState extends State<FinalPage> {
                     ),
                   ],
                 ),
+
+                // Contenedor para mostrar los datos del pedido
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 16.0),
                   decoration: BoxDecoration(
@@ -79,6 +82,7 @@ class _FinalPageState extends State<FinalPage> {
                     ),
                   ),
                 ),
+
                 Text(
                   'Pedido',
                   style: TextStyle(
@@ -86,6 +90,8 @@ class _FinalPageState extends State<FinalPage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+
+                // Contenedor para mostrar el carrito de compras
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -107,6 +113,7 @@ class _FinalPageState extends State<FinalPage> {
                     )
                   ],
                 ),
+
                 Text(
                   'Precio total',
                   style: TextStyle(
@@ -114,6 +121,8 @@ class _FinalPageState extends State<FinalPage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+
+                // Contenedor para mostrar el total del carrito de compras
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 16.0),
                   decoration: BoxDecoration(
@@ -132,6 +141,8 @@ class _FinalPageState extends State<FinalPage> {
                         child: CartTotal()),
                   ),
                 ),
+
+                // Botón para realizar el pedido por WhatsApp
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

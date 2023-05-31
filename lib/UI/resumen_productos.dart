@@ -5,19 +5,25 @@ import 'package:sprint1/Models/product_model.dart';
 
 import '../controllers/cart_controller.dart';
 
+/// Clase CartScreen que representa la pantalla del carrito
 class CartScreen extends StatelessWidget {
-  final CartController controller = Get.find();
-  final double scWidth;
+  final CartController controller =
+      Get.find(); // Búsqueda del controlador de carrito existente
+  final double scWidth; // Ancho de la pantalla
+
   CartScreen({Key? key, required this.scWidth}) : super(key: key);
 
   @override
+
+  /// Construcción de la interfaz de usuario
   Widget build(BuildContext context) {
     return Obx(
       () => Container(
         height: 200,
         width: scWidth,
         child: ListView.builder(
-          itemCount: controller.productos.length,
+          itemCount:
+              controller.productos.length, // Número de productos en el carrito
           itemBuilder: (BuildContext context, int index) {
             return CartScreenCard(
               controller: controller,
@@ -33,12 +39,13 @@ class CartScreen extends StatelessWidget {
   }
 }
 
+/// Clase CartScreenCard que representa un elemento de producto en la pantalla del carrito
 class CartScreenCard extends StatelessWidget {
-  final CartController controller;
-  final Producto producto;
-  final int cantidad;
-  final int index;
-  final double scWidth;
+  final CartController controller; // Controlador del carrito
+  final Producto producto; // Producto
+  final int cantidad; // Cantidad del producto
+  final int index; // Índice del producto
+  final double scWidth; // Ancho de la pantalla
 
   CartScreenCard({
     Key? key,
@@ -51,6 +58,7 @@ class CartScreenCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Construcción de la interfaz de usuario
     return Column(
       children: [
         Row(
@@ -73,14 +81,15 @@ class CartScreenCard extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(producto.nombre),
-                  Text("\$ ${producto.precio}")
+                  Text(producto.nombre), // Muestra el nombre del producto
+                  Text(
+                      "\$ ${producto.precio}") // Muestra el precio del producto
                 ],
               ),
             ),
             Padding(
               padding: EdgeInsets.only(left: 30, bottom: 5, top: 5, right: 0),
-              child: Text("${cantidad}"),
+              child: Text("${cantidad}"), // Muestra la cantidad del producto
             ),
           ],
         ),
@@ -93,7 +102,7 @@ class CartScreenCard extends StatelessWidget {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [],
+          children: [], // Lista vacía, se pueden agregar elementos aquí según sea necesario
         ),
       ],
     );

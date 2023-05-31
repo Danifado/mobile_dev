@@ -21,10 +21,12 @@ class _DomiciliosState extends State<Domicilios> {
   TextEditingController addressController = TextEditingController(text: "");
   TextEditingController observationsController =
       TextEditingController(text: "");
+
   @override
   Widget build(BuildContext context) {
     double scWidth = MediaQuery.of(context).size.width;
     double wsize = 0;
+
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(
@@ -33,11 +35,13 @@ class _DomiciliosState extends State<Domicilios> {
               Get.to(FistPage());
             }),
         centerTitle: true,
-        title: const Text("Escribir datos",
-            style: TextStyle(
-                fontFamily: 'RoboBol',
-                color: Color.fromRGBO(255, 112, 2, 1),
-                fontWeight: FontWeight.bold)),
+        title: const Text(
+          "Escribir datos",
+          style: TextStyle(
+              fontFamily: 'RoboBol',
+              color: Color.fromRGBO(255, 112, 2, 1),
+              fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Colors.white,
         shadowColor: Colors.transparent,
         shape: const Border(
@@ -47,6 +51,7 @@ class _DomiciliosState extends State<Domicilios> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            // Texto de instrucciones
             Row(
               children: [
                 Flexible(
@@ -55,7 +60,7 @@ class _DomiciliosState extends State<Domicilios> {
                       padding: EdgeInsets.all(20),
                       child: Center(
                         child: Text(
-                          "Por favor indicanos tus datos, para completar el pedido",
+                          "Por favor indícanos tus datos para completar el pedido",
                           style: TextStyle(fontFamily: 'Roboto', fontSize: 16),
                           textAlign: TextAlign.center,
                         ),
@@ -65,6 +70,8 @@ class _DomiciliosState extends State<Domicilios> {
                 ),
               ],
             ),
+
+            // Campo de nombre
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -80,7 +87,7 @@ class _DomiciliosState extends State<Domicilios> {
                       child: TextFormField(
                         controller: nameController,
                         decoration: InputDecoration(
-                          hintText: "Escriba su nombre",
+                          hintText: "Escribe tu nombre",
                           labelText: "Nombre",
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                           labelStyle: const TextStyle(
@@ -88,15 +95,13 @@ class _DomiciliosState extends State<Domicilios> {
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
                                 width: 2.5,
-                                color: Color.fromRGBO(
-                                    255, 112, 2, 1)), //<-- SEE HERE
+                                color: Color.fromRGBO(255, 112, 2, 1)),
                             borderRadius: BorderRadius.circular(5),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
                                 width: 2.5,
-                                color: Color.fromRGBO(
-                                    255, 112, 2, 1)), //<-- SEE HERE
+                                color: Color.fromRGBO(255, 112, 2, 1)),
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
@@ -106,6 +111,8 @@ class _DomiciliosState extends State<Domicilios> {
                 ),
               ],
             ),
+
+            // Campo de teléfono
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -121,7 +128,7 @@ class _DomiciliosState extends State<Domicilios> {
                       child: TextFormField(
                         controller: phoneController,
                         decoration: InputDecoration(
-                          hintText: "Escriba su teléfono",
+                          hintText: "Escribe tu teléfono",
                           labelText: "Teléfono",
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                           labelStyle: const TextStyle(
@@ -129,15 +136,13 @@ class _DomiciliosState extends State<Domicilios> {
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
                                 width: 2.5,
-                                color: Color.fromRGBO(
-                                    255, 112, 2, 1)), //<-- SEE HERE
+                                color: Color.fromRGBO(255, 112, 2, 1)),
                             borderRadius: BorderRadius.circular(5),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
                                 width: 2.5,
-                                color: Color.fromRGBO(
-                                    255, 112, 2, 1)), //<-- SEE HERE
+                                color: Color.fromRGBO(255, 112, 2, 1)),
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
@@ -147,6 +152,8 @@ class _DomiciliosState extends State<Domicilios> {
                 ),
               ],
             ),
+
+            // Campo de dirección
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -160,7 +167,7 @@ class _DomiciliosState extends State<Domicilios> {
                       child: TextFormField(
                         controller: addressController,
                         decoration: InputDecoration(
-                          hintText: "Escriba su dirección",
+                          hintText: "Escribe tu dirección",
                           labelText: "Dirección",
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                           labelStyle: const TextStyle(
@@ -168,15 +175,13 @@ class _DomiciliosState extends State<Domicilios> {
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
                                 width: 2.5,
-                                color: Color.fromRGBO(
-                                    255, 112, 2, 1)), //<-- SEE HERE
+                                color: Color.fromRGBO(255, 112, 2, 1)),
                             borderRadius: BorderRadius.circular(5),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
                                 width: 2.5,
-                                color: Color.fromRGBO(
-                                    255, 112, 2, 1)), //<-- SEE HERE
+                                color: Color.fromRGBO(255, 112, 2, 1)),
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
@@ -186,6 +191,8 @@ class _DomiciliosState extends State<Domicilios> {
                 ),
               ],
             ),
+
+            // Campo de observaciones
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -207,15 +214,13 @@ class _DomiciliosState extends State<Domicilios> {
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
                               width: 2.5,
-                              color: Color.fromRGBO(
-                                  255, 112, 2, 1)), //<-- SEE HERE
+                              color: Color.fromRGBO(255, 112, 2, 1)),
                           borderRadius: BorderRadius.circular(5),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
                               width: 2.5,
-                              color: Color.fromRGBO(
-                                  255, 112, 2, 1)), //<-- SEE HERE
+                              color: Color.fromRGBO(255, 112, 2, 1)),
                           borderRadius: BorderRadius.circular(5),
                         ),
                       ),
@@ -224,6 +229,8 @@ class _DomiciliosState extends State<Domicilios> {
                 ))
               ],
             ),
+
+            // Título de "Menú seleccionado"
             Row(
               children: [
                 Padding(
@@ -240,6 +247,8 @@ class _DomiciliosState extends State<Domicilios> {
                     ))
               ],
             ),
+
+            // Contenedor del carrito de compras
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -273,6 +282,8 @@ class _DomiciliosState extends State<Domicilios> {
                 )
               ],
             ),
+
+            // Botón para pedir el domicilio
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

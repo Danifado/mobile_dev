@@ -12,7 +12,8 @@ class CartTotal extends StatelessWidget {
     return Obx(
       () => Container(
         child: Center(
-          child: Text("\$${controller.total}"),
+          child: Text(
+              "\$${controller.total}"), // Mostrar el valor total del carrito utilizando el controlador
         ),
       ),
     );
