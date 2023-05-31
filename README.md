@@ -1,15 +1,17 @@
-# sprint1
+# Aplicacion de ventas para restaurantes
 
-A new Flutter project.
+Es aplicacion le permite al usuario realizar pedidos en varios restaurantes
+y pagar por estos en linea.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Este proyecto tiene implementada la parte del manejo de los pedidos y la seccion de pagos.
 
-A few resources to get you started if this is your first Flutter project:
+Librerias:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [Get: Manejo de estados](https://pub.dev/packages/get)
+- [Firebase_core, cloud_firestore: Implementacion de la base de datos firebase](https://pub.dev/packages/firebase_corek)
+- [uuid: Generador de ids](https://pub.dev/packages/uuid)
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
